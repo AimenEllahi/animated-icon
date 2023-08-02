@@ -3,7 +3,7 @@
 body {
   background: #212121;
   height: 100vh;
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Bitter', serif;
@@ -11,13 +11,14 @@ body {
 }
 
 :root {
-  --sendingColor:#0cf;
+  --sendingColor: #0cf;
   --scale: 3;
   --bgColor: #0cf;
-  --color:#212121;
+  --color: #212121;
 }
 
-button, .send {
+button,
+.send {
   font-family: 'Bitter', serif;
   border: none;
   background: none;
@@ -27,6 +28,7 @@ button, .send {
   margin-left: 1rem;
   transition: padding 0.3s ease-in-out;
 }
+
 .submit {
   display: flex;
   align-items: center;
@@ -39,7 +41,7 @@ button, .send {
 
 .send {
   position: absolute;
-  transform: translatey(-100%);
+  transform: translatey(100%);
   transition: all;
   width: 100%;
 }
@@ -60,13 +62,15 @@ button, .send {
   align-items: center;
   width: calc(100% - 4px);
   overflow: hidden;
-  position: absolute;
+  position: relative;
   clip-path: inset(0 0 0 0);
+  height: 2rem;
+  width: 12rem;
 }
 
 .submit_arrow {
-  --width: 10px;
-  --height: calc(var(--width) - 0px);
+  --width: 5px;
+  --height: 7px;
   z-index: 6;
   position: absolute;
   left: 0;
@@ -81,7 +85,7 @@ button, .send {
 
 .bg_arrow {
   --width: 20px;
-  --height: 20px;
+  --height: 15px;
   z-index: 5;
   position: absolute;
   left: 0;
@@ -95,10 +99,11 @@ button, .send {
 }
 
 .submit_loader {
-  --width_loader: 0%; /* Initial width to show a part of the loader */
-  --height_loader: 20px;
-  content:  '';
+  --width_loader: 5%;
+  --height_loader: 9px;
+  content: '';
   display: block;
+  position: absolute;
   width: var(--width_loader);
   height: var(--height_loader);
   background: var(--sendingColor);
@@ -107,10 +112,11 @@ button, .send {
 }
 
 .submit_loader_2 {
-  --width_loader: 0%; /* Initial width to show a part of the loader */
-  --height_loader: 20px;
-  content:  '';
+  --width_loader: 5%;
+  --height_loader: 9px;
+  content: '';
   display: block;
+  position: absolute;
   width: var(--width_loader);
   height: var(--height_loader);
   background: var(--sendingColor);
@@ -119,110 +125,12 @@ button, .send {
 }
 
 
-/*.submit_arrow {
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
-  transform: translateX(150%);
-}*/
-
-/* --- Button Blicked Styles */
 
 .button_clicked button {
-  padding-left: 0!important;
+  padding-left: 0 !important;
 }
 
 .button_clicked button {
   color: var(--sendingColor);
-  animation: slideDown 5s ease-in-out forwards;
-}
 
-.button_clicked .send {
-  color: var(--sendingColor);
-  animation: sended 1250ms 3s ease-in-out forwards;
-}
-
-@keyframes sended {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  10% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  75% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 1;
-  }
-}
-
-
-@keyframes slideDown {
-  10% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  89% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  90% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-.button_clicked .submit_loader {
-  --width_loader: calc(100%);
-  animation: loopBar 0.8s 1s ease-in-out 2 forwards;
-}
-
-@keyframes loopBar {
-  0% {
-    opacity: 0;
-  }
-  1% {
-    transform: translatex(0%);
-    opacity: 1;
-  }
- /*50% {
-    transform: translatex(calc(100% - 20px)) transform-origin: center left;
-  }
-  75% {
-    transform: translatex(0%);
-  }*/
-  99% {
-    transform: 
-      translatex(calc(100%))
-      scalex(0);
-    transform-origin: bottom right;
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.button_clicked .submit_arrow {
-  border-color: transparent transparent transparent var(--sendingColor);
-  position: relative;
-  left: 0%;
-  transition: all;
-  animation: slideRight 1s 1s ease-in-out;
-}
-
-@keyframes slideRight {
-  0% {
-    left: calc(0% - 0rem);
-  }
-  100% {
-    left: calc(100% - 0px);
-  }
 }

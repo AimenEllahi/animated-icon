@@ -6,49 +6,64 @@ const submitButton = document.querySelector(".submit");
 const submitLoader = document.querySelector(".submit_loader");
 const submitLoader2 = document.querySelector(".submit_loader_2");
 const submitArrow = document.querySelector(".submit_arrow");
-const backArrow = document.querySelector(".bg_arrow");
 const submitText = document.querySelector("button");
 const sentText = document.querySelector(".send");
 
 // Create a GSAP timeline
-const timeline = gsap.timeline({ paused: true });
+const timeline = gsap.timeline({ stop: true });
 
+const startAnimation = () => {
+  submitLoader.style.opacity = 1;
+  submitLoader2.style.opacity = 1;
+  // State 1: Static
+  timeline
+    .to(submitText, { y: "100%", duration: 0.5 })
+    .to(submitArrow, {
+      x: 140,
+      duration: 0.5,
 
-
-// State 1: Static
-timeline.to(submitText, { y: 0, duration: 1 })
-        .to(submitArrow, { y: 0, duration: 1 }, "<")
-        
-
-// // State 2: Loading
-timeline.to(submitText, { y: "100%", duration: 1, })
-        .to(submitArrow, { x: 140, duration: 1,delay: 1 }, ">") 
-        .to(submitLoader, { width: 190, duration: 0.3, delay: 1 }, ">")
-        .to(submitLoader2, { width: 190, duration: 0.1, delay: 5 }, ">");
-        // .to(backArrow, { x: 140, duration: 4, delay: 2 }, "<")
-        
-        // .to(backArrow, { x: 0, duration: 4, delay: 0.3, opacity: 0 }, "<")
-      
-// State 3: Sent
-timeline.to(submitLoader, { x: 180, duration: 1 })
-        .to(submitLoader2, { x: 180, duration: 1 }, "<")
-        .to(submitArrow, { x: 180, duration: 1, opacity: 0 }, "<")
-        .to(backArrow, { x: 180, duration: 1, opacity:0 }, "<")
-        .to(sentText, { y: 0, duration: .7 })
-        .to(submitArrow, { width:0 , x: 0, duration: 0.3 }, "<");
-
-
-// State 4: Reset
-timeline.to(sentText, { y: "100%", duration: 0.5 })
-        .to(submitText, { y: 0, duration: 0.5, delay: .5 })
-        .to(submitArrow, { x: 0, duration: 0.3,opacity: 1 }, "<")
-        .to(submitLoader, { width: 0, duration: 0.3 }, "<")
-        .to(submitLoader2, {width: 0, duration: 0.3 }, "<");
-
+      ease: "power2.out",
+    })
+    .to(submitLoader, { width: 140, duration: 0.1 })
+    .to(submitLoader, {
+      transformOrigin: "right",
+      scaleX: 0,
+      delay: 1,
+      duration: 0.1,
+      onComplete: () => {
+        submitLoader.style.opacity = 0;
+        gsap.to(submitLoader, { scaleX: 1, width: 0 });
+      },
+    })
+    .to(submitLoader2, { width: 140, duration: 0.1 })
+    .to(submitLoader2, {
+      transformOrigin: "right",
+      scaleX: 0,
+      delay: 1,
+      duration: 0.1,
+      onComplete: () => {
+        submitLoader2.style.opacity = 0;
+        gsap.to(submitLoader2, { scaleX: 1, width: 0 });
+      },
+    })
+    .to(submitArrow, {
+      opacity: 0,
+      x: 150,
+    })
+    .to(sentText, { y: 0, duration: 0.7 })
+    .to(submitArrow, {
+      x: 0,
+    })
+    .to(submitArrow, {
+      opacity: 1,
+      onStart: () => {
+        gsap.to(sentText, { y: "-100%", duration: 0.7 });
+        gsap.to(submitText, { y: 0, duration: 0.5 });
+      },
+    });
+};
 
 // Add a click event listener to the button
 submitButton.addEventListener("click", function () {
-  timeline.restart();
+  startAnimation();
 });
-
-
