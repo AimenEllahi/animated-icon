@@ -48,17 +48,35 @@ const startAnimation = () => {
     })
     .to(submitArrow, {
       opacity: 0,
-      x: 150,
+      duration: 0.01,
+      x: 200,
     })
-    .to(sentText, { y: 0, duration: 0.7 })
+    //use from to to slide text from top only
+    .fromTo(
+      sentText,
+      { y: "-100%" },
+      {
+        y: 0,
+        duration: 0.7,
+      }
+    )
     .to(submitArrow, {
       x: 0,
     })
+  
     .to(submitArrow, {
       opacity: 1,
       onStart: () => {
-        gsap.to(sentText, { y: "-100%", duration: 0.7 });
-        gsap.to(submitText, { y: 0, duration: 0.5 });
+        gsap.to(sentText, { y: "100%", duration: 0.7 });
+        gsap.fromTo(
+          submitText,
+          { y: "-100%" },
+          {
+            y: 0,
+            duration: 1.2,
+            delay: 0.5,
+          }
+        )
       },
     });
 };

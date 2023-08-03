@@ -100,7 +100,7 @@ button,
 
 .submit_loader {
   --width_loader: 5%;
-  --height_loader: 9px;
+  --height_loader: 10px;
   content: '';
   display: block;
   position: absolute;
@@ -113,7 +113,7 @@ button,
 
 .submit_loader_2 {
   --width_loader: 5%;
-  --height_loader: 9px;
+  --height_loader: 10px;
   content: '';
   display: block;
   position: absolute;
