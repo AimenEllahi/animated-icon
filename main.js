@@ -23,7 +23,6 @@ const startAnimation = () => {
     .to(submitArrow, {
       x: 140,
       duration: 0.5,
-
       ease: "power2.out",
     })
     .to(submitLoader, { width: 140, duration: 0.1 })
@@ -61,7 +60,10 @@ const startAnimation = () => {
     })
     .to(submitArrow, {
       duration: 0.5,
-      opacity: 0,
+      onComplete: () => {
+        submitArrow.style.opacity = 0;
+        gsap.to(submitArrow, { x: -3 });
+      },
       x: 200,
     })
     //use from to to slide text from top only
@@ -73,28 +75,26 @@ const startAnimation = () => {
         duration: 0.7,
       }
     )
-    .to(submitArrow, {
-      x: 0,
-      duration: 0.5,
-      delay: 0.5,
-    })
-  
-    .to(submitArrow, {
-      opacity: 1,
-              
-      onStart: () => {
-        gsap.to(sentText, { y: "100%", duration: 0.7 });
-        gsap.fromTo(
-          submitText,
-          { y: "-100%" },
-          {
-            y: 0,
-            duration: 1.2,
-            delay: 0.5,
-          }
-        )
-      },
-    });
+    .to(
+      submitArrow,
+
+      {
+        x: 0,
+        onStart: () => {
+          submitArrow.style.opacity = 1;
+          gsap.to(sentText, { y: "100%", duration: 0.7 });
+          gsap.fromTo(
+            submitText,
+            { y: "-100%" },
+            {
+              y: 0,
+              duration: 1,
+              delay: 0.2,
+            }
+          );
+        },
+      }
+    );
 };
 
 // Add a click event listener to the button

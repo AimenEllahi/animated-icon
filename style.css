@@ -8,6 +8,7 @@ body {
   align-items: center;
   font-family: 'Bitter', serif;
   overflow: hidden;
+
 }
 
 :root {
@@ -100,7 +101,7 @@ button,
 
 .submit_loader {
   --width_loader: 5%;
-  --height_loader: 10px;
+  --height_loader: 9.5px;
   content: '';
   display: block;
   position: absolute;
@@ -113,7 +114,7 @@ button,
 
 .submit_loader_2 {
   --width_loader: 5%;
-  --height_loader: 10px;
+  --height_loader: 9.5px;
   content: '';
   display: block;
   position: absolute;
@@ -126,7 +127,7 @@ button,
 
 .submit_loader_3 {
   --width_loader: 5%;
-  --height_loader: 10px;
+  --height_loader: 9.5px;
   content: '';
   display: block;
   position: absolute;
