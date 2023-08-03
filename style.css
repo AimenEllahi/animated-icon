@@ -26,7 +26,7 @@ button,
   font-size: 24px;
   font-style: italic;
   margin-left: 1rem;
-  transition: padding 0.3s ease-in-out;
+  /* transition: padding 0.3s ease-in-out; */
 }
 
 .submit {
@@ -46,7 +46,7 @@ button,
   width: 100%;
 }
 
-.submit:hover .submit_arrow {
+/* .submit:hover .submit_arrow {
   opacity: 1;
   transform: translateX(0);
 }
@@ -55,7 +55,7 @@ button,
 .submit:hover button {
   padding-left: 1rem;
   transition-delay: 300ms;
-}
+} */
 
 .submit_shapes {
   display: flex;
@@ -124,7 +124,18 @@ button,
   z-index: 4;
 }
 
-
+.submit_loader_3 {
+  --width_loader: 5%;
+  --height_loader: 10px;
+  content: '';
+  display: block;
+  position: absolute;
+  width: var(--width_loader);
+  height: var(--height_loader);
+  background: var(--sendingColor);
+  transition: width 0.6s 0.3s ease-in-out;
+  z-index: 4;
+}
 
 .button_clicked button {
   padding-left: 0 !important;

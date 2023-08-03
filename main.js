@@ -5,6 +5,7 @@ import gsap from "gsap";
 const submitButton = document.querySelector(".submit");
 const submitLoader = document.querySelector(".submit_loader");
 const submitLoader2 = document.querySelector(".submit_loader_2");
+const submitLoader3 = document.querySelector(".submit_loader_3");
 const submitArrow = document.querySelector(".submit_arrow");
 const submitText = document.querySelector("button");
 const sentText = document.querySelector(".send");
@@ -15,6 +16,7 @@ const timeline = gsap.timeline({ stop: true });
 const startAnimation = () => {
   submitLoader.style.opacity = 1;
   submitLoader2.style.opacity = 1;
+  submitLoader3.style.opacity = 1;
   // State 1: Static
   timeline
     .to(submitText, { y: "100%", duration: 0.5 })
@@ -46,9 +48,20 @@ const startAnimation = () => {
         gsap.to(submitLoader2, { scaleX: 1, width: 0 });
       },
     })
+    .to(submitLoader3, { width: 140, duration: 0.1 })
+    .to(submitLoader3, {
+      transformOrigin: "right",
+      scaleX: 0,
+      delay: 1,
+      duration: 0.1,
+      onComplete: () => {
+        submitLoader3.style.opacity = 0;
+        gsap.to(submitLoader3, { scaleX: 1, width: 0 });
+      },
+    })
     .to(submitArrow, {
+      duration: 0.5,
       opacity: 0,
-      duration: 0.01,
       x: 200,
     })
     //use from to to slide text from top only
@@ -62,10 +75,13 @@ const startAnimation = () => {
     )
     .to(submitArrow, {
       x: 0,
+      duration: 0.5,
+      delay: 0.5,
     })
   
     .to(submitArrow, {
       opacity: 1,
+              
       onStart: () => {
         gsap.to(sentText, { y: "100%", duration: 0.7 });
         gsap.fromTo(
