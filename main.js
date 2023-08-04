@@ -62,7 +62,7 @@ const startAnimation = () => {
       duration: 0.5,
       onComplete: () => {
         submitArrow.style.opacity = 0;
-        gsap.to(submitArrow, { x: -3 });
+        gsap.to(submitArrow, { x: -7 });
       },
       x: 200,
     })
@@ -80,16 +80,15 @@ const startAnimation = () => {
 
       {
         x: 0,
+        delay: 0.5,
         onStart: () => {
           submitArrow.style.opacity = 1;
-          gsap.to(sentText, { y: "100%", duration: 0.7 });
+          gsap.to(sentText, { y: "100%" });
           gsap.fromTo(
             submitText,
             { y: "-100%" },
             {
               y: 0,
-              duration: 1,
-              delay: 0.2,
             }
           );
         },
