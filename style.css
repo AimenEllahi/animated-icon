@@ -55,7 +55,7 @@ button,
   position: relative;
   clip-path: inset(0 0 0 0);
   height: 2rem;
-  width: 12rem;
+  width: 10rem;
 }
 
 .submit_arrow {
@@ -90,7 +90,7 @@ button,
 
 .submit_loader {
   --width_loader: 5%;
-  --height_loader: 9.5px;
+  --height_loader: 10.2px;
   content: '';
   display: block;
   position: absolute;
@@ -103,7 +103,7 @@ button,
 
 .submit_loader_2 {
   --width_loader: 5%;
-  --height_loader: 9.5px;
+  --height_loader: 10.2px;
   content: '';
   display: block;
   position: absolute;
@@ -116,7 +116,7 @@ button,
 
 .submit_loader_3 {
   --width_loader: 5%;
-  --height_loader: 9.5px;
+  --height_loader: 10.2px;
   content: '';
   display: block;
   position: absolute;
