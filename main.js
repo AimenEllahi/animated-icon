@@ -1,6 +1,3 @@
-// Import GSAP
-import gsap from "gsap";
-
 // Get the necessary elements
 const submitButton = document.querySelector(".submit");
 const submitLoader = document.querySelector(".submit_loader");
@@ -9,7 +6,7 @@ const submitLoader3 = document.querySelector(".submit_loader_3");
 const submitArrow = document.querySelector(".submit_arrow");
 const submitText = document.querySelector("button");
 const sentText = document.querySelector(".send");
-
+let isRunning = false;
 // Create a GSAP timeline
 const timeline = gsap.timeline({ stop: true });
 
@@ -92,11 +89,17 @@ const startAnimation = () => {
             }
           );
         },
+        onComplete: () => {
+          isRunning = false;
+        },
       }
     );
 };
 
 // Add a click event listener to the button
 submitButton.addEventListener("click", function () {
-  startAnimation();
+  if (!isRunning) {
+    isRunning = true;
+    startAnimation();
+  }
 });
