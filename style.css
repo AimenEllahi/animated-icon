@@ -97,7 +97,7 @@ button,
   width: var(--width_loader);
   height: var(--height_loader);
   background: var(--sendingColor);
-  transition: width 0.6s 0.3s ease-in-out;
+  /* transition: width 0.6s 0.3s ease-in-out; */
   z-index: 4;
 }
 
@@ -110,7 +110,7 @@ button,
   width: var(--width_loader);
   height: var(--height_loader);
   background: var(--sendingColor);
-  transition: width 0.6s 0.3s ease-in-out;
+  /* transition: width 0.6s 0.3s ease-in-out; */
   z-index: 4;
 }
 
@@ -123,7 +123,7 @@ button,
   width: var(--width_loader);
   height: var(--height_loader);
   background: var(--sendingColor);
-  transition: width 0.6s 0.3s ease-in-out;
+  /* transition: width 0.6s 0.3s ease-in-out; */
   z-index: 4;
 }
 
