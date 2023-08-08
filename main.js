@@ -1,3 +1,4 @@
+import gsap from "gsap";
 // Get the necessary elements
 const submitButton = document.querySelector(".submit");
 const submitLoader = document.querySelector(".submit_loader");
@@ -101,5 +102,7 @@ submitButton.addEventListener("click", function () {
   if (!isRunning) {
     isRunning = true;
     startAnimation();
+  } else {
+    timeline.progress(1);
   }
 });
